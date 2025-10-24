@@ -1,7 +1,7 @@
 .github/**
 .vscode/**
 .vscode-test/**
-node_modules/*
+node_modules/**
 out/**
 dist/test/**
 dist/**/*.map
@@ -25,6 +25,7 @@ stats.json
 .eslintrc.js
 .eslintignore
 package-lock.json
+yarn.lock
 tsconfig.json
 tslint.json
 webpack.config.js
@@ -33,62 +34,71 @@ jest.config.js
 *.zip
 *.vsix
 
-# Externals
+# Externals - Only include specific runtime dependencies
 # jieba
-!node_modules/nodejieba
+!node_modules/nodejieba/build
+!node_modules/nodejieba/build/Release
 !node_modules/nodejieba/build/Release/nodejieba.*
+!node_modules/nodejieba/dict
 !node_modules/nodejieba/dict/**
-!node_modules/nodejieba/*.js
-!node_modules/nodejieba/*.json
+!node_modules/nodejieba/index.js
+!node_modules/nodejieba/package.json
 
-# ts-node
-!node_modules/ts-node
-!node_modules/ts-node/**/*.js
-!node_modules/ts-node/**/*.json
+# ts-node and its dependencies (needed for runtime execution)
+!node_modules/ts-node/dist
+!node_modules/ts-node/dist/**/*.js
+!node_modules/ts-node/dist-raw
+!node_modules/ts-node/dist-raw/**/*.js
+!node_modules/ts-node/register
+!node_modules/ts-node/register/**/*.js
+!node_modules/ts-node/esm.mjs
+!node_modules/ts-node/package.json
 
-!node_modules/arg
-!node_modules/arg/*.js
-!node_modules/arg/*.json
+!node_modules/arg/index.js
+!node_modules/arg/package.json
 
-!node_modules/buffer-from
-!node_modules/buffer-from/*.js
-!node_modules/buffer-from/*.json
+!node_modules/buffer-from/index.js
+!node_modules/buffer-from/package.json
 
-!node_modules/source-map
-!node_modules/source-map/**/*.js
-!node_modules/source-map/**/*.json
+!node_modules/source-map/dist
+!node_modules/source-map/dist/**/*.js
+!node_modules/source-map/source-map.js
+!node_modules/source-map/package.json
 
-!node_modules/source-map-support
-!node_modules/source-map-support/*.js
-!node_modules/source-map-support/*.json
+!node_modules/source-map-support/source-map-support.js
+!node_modules/source-map-support/register.js
+!node_modules/source-map-support/package.json
 
-!node_modules/yn
-!node_modules/yn/*.js
-!node_modules/yn/*.json
+!node_modules/yn/index.js
+!node_modules/yn/package.json
 
-!node_modules/make-error
-!node_modules/make-error/*.js
-!node_modules/make-error/*.json
+!node_modules/make-error/index.js
+!node_modules/make-error/dist
+!node_modules/make-error/dist/**/*.js
+!node_modules/make-error/package.json
 
-!node_modules/typescript
-!node_modules/typescript/bin/**
+!node_modules/typescript/lib
 !node_modules/typescript/lib/**
-!node_modules/typescript/*.js
-!node_modules/typescript/*.json
+!node_modules/typescript/package.json
 
-!node_modules/diff
-!node_modules/diff/**/*.js
-!node_modules/diff/**/*.json
+!node_modules/diff/dist
+!node_modules/diff/dist/**/*.js
+!node_modules/diff/lib
+!node_modules/diff/lib/**/*.js
+!node_modules/diff/package.json
 
 # vue-i18n-locale-messages
-!node_modules/consolidate
-!node_modules/consolidate/**/*.js
-!node_modules/consolidate/*.json
-!node_modules/bluebird
-!node_modules/bluebird/**/*.js
-!node_modules/bluebird/*.json
+!node_modules/consolidate/index.js
+!node_modules/consolidate/lib
+!node_modules/consolidate/lib/**/*.js
+!node_modules/consolidate/package.json
+
+!node_modules/bluebird/js
+!node_modules/bluebird/js/**/*.js
+!node_modules/bluebird/package.json
 
 # vue
 !node_modules/vue/dist
 !node_modules/vue/dist/vue.min.js
+!node_modules/vue/package.json
 

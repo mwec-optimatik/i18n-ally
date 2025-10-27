@@ -20,10 +20,12 @@ export function handleRegexMatch(
   const matchString = match[0]
 
   let keyIndex = 1
-  let nextIntlFunctionName = undefined
-  if (scopes.some(s => isNextIntlScopeRange(s))) {
+  let nextIntlFunctionName: string | undefined
+  const hasNextIntlScope = scopes.some(s => isNextIntlScopeRange(s))
+  // Switch to NextIntl capture layout when the regex actually provided both groups
+  if (hasNextIntlScope && typeof match[2] !== 'undefined') {
     keyIndex = 2
-    nextIntlFunctionName = match[1]
+    nextIntlFunctionName = match[1] as string
   }
   let key = match[keyIndex]
   if (!key)
